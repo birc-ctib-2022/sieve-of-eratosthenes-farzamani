@@ -17,4 +17,22 @@ def sieve(n: int) -> list[int]:
 
     # FIXME: fill out this bit
 
+    # first candidate is prime
+    prime = candidates.pop(0)
+    primes.append(prime)
+
+    # invariant
+    n = len(candidates)
+
+    while n > 0:
+        p = candidates.pop(0)
+        prime_check = [p % prime for prime in primes]
+        if 0 not in prime_check:
+            primes.append(p)
+        else:
+            pass
+
+        # loop breaks if n = 0
+        n = len(candidates)
+
     return primes
